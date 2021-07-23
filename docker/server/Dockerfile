@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine
+FROM php:7.2-fpm-alpine
 
 RUN apk --no-cache update && apk --no-cache add bash git \
 docker-php-ext-install pdo_mysql \
