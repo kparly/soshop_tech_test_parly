@@ -1,0 +1,9 @@
+services:
+  gedmo.listener.softdeleteable:
+    class: Gedmo\SoftDeleteable\SoftDeleteableListener
+    tags:
+      - { name: doctrine.event_subscriber, connection: default }
+    calls:
+      - [ setAnnotationReader, [ '@annotation_reader' ] ]
+  sensio_framework_extra.view.listener:
+    alias: Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener

@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  server:
+    build:
+      context: ./docker/server
+      dockerfile: Dockerfile
+    container_name: serverphp
+    ports:
+      - 8080:8000
+    volumes:
+    - ./app:/var/www/html
+  mysql:
+    image: mysql
+    container_name: dbmysql
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./docker/bdd:/var/lib/mysql
+    environment:
+      MYSQL_USER: kparly
+      MYSQL_PASSWORD: kparly
+      MYSQL_DATABASE: shoshopTest
